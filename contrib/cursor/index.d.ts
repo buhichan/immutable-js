@@ -50,7 +50,7 @@ export function from(
 ): Cursor;
 
 
-export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any, any> {
+export interface Cursor extends Iterable<any, any>, Immutable.Seq<any, any> {
 
   /**
    * Returns a sub-cursor following the key-path starting from this cursor.
@@ -79,7 +79,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    * If the keyPath would return a collection, a new Cursor is returned.
    */
   getIn(keyPath: Array<any>, notSetValue?: any): any;
-  getIn(keyPath: Immutable.Iterable<any, any>, notSetValue?: any): any;
+  getIn(keyPath: Iterable<any, any>, notSetValue?: any): any;
 
   /**
    * Sets `value` at `key` in the cursor, returning a new cursor to the same
@@ -118,7 +118,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
   /**
    * @see `Map#merge`
    */
-  merge(...iterables: Immutable.Iterable<any, any>[]): Cursor;
+  merge(...iterables: Iterable<any, any>[]): Cursor;
   merge(...iterables: {[key: string]: any}[]): Cursor;
 
   /**
@@ -126,7 +126,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    */
   mergeWith(
     merger: (previous?: any, next?: any) => any,
-    ...iterables: Immutable.Iterable<any, any>[]
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeWith(
     merger: (previous?: any, next?: any) => any,
@@ -136,7 +136,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
   /**
    * @see `Map#mergeDeep`
    */
-  mergeDeep(...iterables: Immutable.Iterable<any, any>[]): Cursor;
+  mergeDeep(...iterables: Iterable<any, any>[]): Cursor;
   mergeDeep(...iterables: {[key: string]: any}[]): Cursor;
 
   /**
@@ -144,7 +144,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    */
   mergeDeepWith(
     merger: (previous?: any, next?: any) => any,
-    ...iterables: Immutable.Iterable<any, any>[]
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeDeepWith(
     merger: (previous?: any, next?: any) => any,
@@ -158,7 +158,7 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    * `keyPath` do not exist, a new immutable Map will be created at that key.
    */
   setIn(keyPath: Array<any>, value: any): Cursor;
-  setIn(keyPath: Immutable.Iterable<any, any>, value: any): Cursor;
+  setIn(keyPath: Iterable<any, any>, value: any): Cursor;
 
   /**
    * Returns a new Cursor with provided `values` appended
@@ -189,9 +189,9 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    * @alias removeIn
    */
   deleteIn(keyPath: Array<any>): Cursor;
-  deleteIn(keyPath: Immutable.Iterable<any, any>): Cursor;
+  deleteIn(keyPath: Iterable<any, any>): Cursor;
   removeIn(keyPath: Array<any>): Cursor;
-  removeIn(keyPath: Immutable.Iterable<any, any>): Cursor;
+  removeIn(keyPath: Iterable<any, any>): Cursor;
 
   /**
    * Returns a new Cursor having applied the `updater` to the value found at
@@ -215,11 +215,11 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
     updater: (value: any) => any
   ): Cursor;
   updateIn(
-    keyPath: Immutable.Iterable<any, any>,
+    keyPath: Iterable<any, any>,
     updater: (value: any) => any
   ): Cursor;
   updateIn(
-    keyPath: Immutable.Iterable<any, any>,
+    keyPath: Iterable<any, any>,
     notSetValue: any,
     updater: (value: any) => any
   ): Cursor;
@@ -234,12 +234,12 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    *
    */
   mergeIn(
-    keyPath: Immutable.Iterable<any, any>,
-    ...iterables: Immutable.Iterable<any, any>[]
+    keyPath: Iterable<any, any>,
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeIn(
     keyPath: Array<any>,
-    ...iterables: Immutable.Iterable<any, any>[]
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeIn(
     keyPath: Array<any>,
@@ -256,12 +256,12 @@ export interface Cursor extends Immutable.Iterable<any, any>, Immutable.Seq<any,
    *
    */
   mergeDeepIn(
-    keyPath: Immutable.Iterable<any, any>,
-    ...iterables: Immutable.Iterable<any, any>[]
+    keyPath: Iterable<any, any>,
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeDeepIn(
     keyPath: Array<any>,
-    ...iterables: Immutable.Iterable<any, any>[]
+    ...iterables: Iterable<any, any>[]
   ): Cursor;
   mergeDeepIn(
     keyPath: Array<any>,
